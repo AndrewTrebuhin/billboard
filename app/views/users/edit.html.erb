@@ -1,1 +1,24 @@
 <h1>Edit profile</h1>
+<%= simple_form_for @user do |f| %>
+<div class="row">
+  <div class="col-sm-6 col-md-3">
+    <%= f.input :login, input_html: { maxlength: 30 } %>
+    <%= f.input :email, readonly: true, input_html: { maxlength: 30 } %>
+    <%= f.input :full_name, input_html: { maxlength: 30 } %>
+    <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
+                                end_year: Date.today.year - 12,
+                                order: [:day, :month, :year]%>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <%= f.input :zip %>
+      <%= f.input :country, as: 'string', input_html: { maxlength: 30 } %>
+      <%= f.input :state, input_html: { maxlength: 30 } %>
+      <%= f.input :city, input_html: { maxlength: 30 } %>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <%= f.input :address, as: 'text', input_html: { rows: 4, cols: 50 } %>
+    </div>
+  </div>
+<p><%= f.button :submit, 'Save', class: "btn btn-primary" %> |
+<%= link_to 'Back', :back, class: "btn btn-primary" %></p>
+<% end %>
