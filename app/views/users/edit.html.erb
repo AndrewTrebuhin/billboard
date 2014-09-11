@@ -8,6 +8,11 @@
     <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
                                 end_year: Date.today.year - 12,
                                 order: [:day, :month, :year]%>
+    <br>
+    <% if can? :update, @user %>
+      <%= f.label 'Role' %>
+      <%= f.select :role, User::ROLES %>
+    <% end %>
     </div>
     <div class="col-sm-6 col-md-3">
       <%= f.input :zip %>
@@ -19,6 +24,7 @@
       <%= f.input :address, as: 'text', input_html: { rows: 4, cols: 50 } %>
     </div>
   </div>
+<br>
 <p><%= f.button :submit, 'Save', class: "btn btn-primary" %> |
 <%= link_to 'Back', :back, class: "btn btn-primary" %></p>
 <% end %>

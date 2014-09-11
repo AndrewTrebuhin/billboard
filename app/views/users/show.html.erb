@@ -1,4 +1,10 @@
 <h1><%= @user.email %></h1>
+<% if @user.role == 'admin' %>
+  <p><small>Admin</small></p>
+<% end %>
+<% if @user.role == 'moderator' %>
+  <p><small>Moderator</small></p>
+<% end %>
 <div class="row">
   <div class="col-sm-6 col-md-3">
     <p>Login: <b><%= @user.login %></b></p>
@@ -11,7 +17,14 @@
     <p>State: <b><%= @user.state %></b></p>
     <p>City: <b><%= @user.city %></b></p>
     <p>Address: <b><%= @user.address %></b></p>
+    <p>Latitude: <b><%= @user.latitude %></b></p>
+    <p>Longitude: <b><%= @user.longitude %></b></p>
   </div>
+  <p>Full address: </p>
 </div>
-<p><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
-   <%= link_to 'Back', :back, class: "btn btn-primary" %></p>
+<p>
+  <% if can? :update, :user %>
+   <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
+  <% end %>
+   <%= link_to 'Back', :back, class: "btn btn-primary" %>
+</p>

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :destroy, :admin?]
 
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:login, :full_name, :birthday, :zip,
-                                   :country, :state, :city, :address)
+                                   :country, :state, :city, :address, :role)
     end
 end

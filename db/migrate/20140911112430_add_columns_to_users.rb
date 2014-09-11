@@ -1,4 +1,4 @@
-class AddColumnsToUserTable < ActiveRecord::Migration
+class AddColumnsToUsers < ActiveRecord::Migration
   def change
     add_column :users, :login,     :string
     add_column :users, :full_name, :string
@@ -8,5 +8,6 @@ class AddColumnsToUserTable < ActiveRecord::Migration
     add_column :users, :state,     :string
     add_column :users, :city,      :string
     add_column :users, :address,   :string
+    add_column :users, :role, :string, default: :user
   end
 end

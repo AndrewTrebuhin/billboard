@@ -38,6 +38,10 @@ gem 'simple_form'
 
 gem 'cancancan'
 
+gem 'will_paginate'
+
+gem 'geocoder'
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
