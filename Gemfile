@@ -42,9 +42,10 @@ gem 'will_paginate'
 
 gem 'geocoder'
 
+gem 'faker'
+
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'faker'
 end
 
 group :production do

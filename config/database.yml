@@ -23,3 +23,5 @@ test:
 production:
   adapter: postgresql
   database: my_db_production
+  user: wabluizdybvvzb
+  password: npB6PsBysYhrWw1PQ44hBg8SrN
