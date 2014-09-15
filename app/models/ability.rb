@@ -8,6 +8,12 @@ class Ability
      can :manage, :all if user.role == 'admin'
 
      if user.role == 'user'
+      can :read, :all
+     end
+
+     if user.role == 'moderator'
+      can :read, :all
+      can :manage, :boards
      end
 
     #

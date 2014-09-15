@@ -1,0 +1,5 @@
+<h1>Edit board</h1>
+
+<p><small>Author: <b><%= @board.user.login || @board.user.email %></b></small></p>
+<%= render 'form' %>
+<p><%= link_to 'Back', :back, class: "btn btn-primary" %></p>

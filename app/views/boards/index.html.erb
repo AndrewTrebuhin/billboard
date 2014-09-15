@@ -1,0 +1,10 @@
+<h1>Boards</h1>
+
+<% @boards.each do |board| %>
+  <p>
+    <%= link_to image_tag(board.image_url, size: "100x100"), board %><br>
+    <small>Author: <b><%= link_to board.user.login || board.user.email, board.user %></b></small><br>
+    Description: <b><%= board.description %></b><br>
+    <%= link_to 'See more', board %>
+  </p>
+<% end %>
