@@ -1,10 +1,20 @@
-<h1>Boards</h1>
-
+<div class="row">
 <% @boards.each do |board| %>
-  <p>
-    <%= link_to image_tag(board.image_url, size: "100x100"), board %><br>
-    <small>Author: <b><%= link_to board.user.login || board.user.email, board.user %></b></small><br>
-    Description: <b><%= board.description %></b><br>
-    <%= link_to 'See more', board %>
-  </p>
-<% end %>
+  <div class="col-sm-3 col-md-2">
+    <div class="thumbnail">
+    <% unless board.image.nil? %>
+      <%= link_to image_tag(board.image, size: '120'), board %>
+    <% else %>
+      <%= image_tag('empty_board.jpg', width: '120') %>
+    <% end %>
+      <div class="caption">
+        <p align="right"><small>Author: <b><%= link_to board.user.login || board.user.email,
+                                 board.user %></b></small></p>
+        <p><%= board.description %></p>
+        <p align="right"><small><%= link_to 'See more', board %></small></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<%= will_paginate @boards %>

@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
   before_action :find_board, only: [:show, :edit, :update, :destroy]
 
   def index
-    @boards = Board.all
+    @boards = Board.paginate(:page => params[:page], :per_page => 12)
   end
 
   def show
@@ -51,6 +51,6 @@ class BoardsController < ApplicationController
     end
 
     def board_params
-      params.require(:board).permit(:description, :image_url)
+      params.require(:board).permit(:description, :image)
     end
 end

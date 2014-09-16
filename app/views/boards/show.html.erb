@@ -1,13 +1,16 @@
 <h1>Board</h1>
-<p><small>Author: <b><%= @board.user.login || @board.user.email %></b></small></p>
-<p>Image URL: <b><%= @board.image_url %></b></p>
+
+<p>
+<%= image_tag(@board.image, width: "200") %><br>
+<small>Author: <b><%= @board.user.login || @board.user.email %></b></small>
+</p>
 <p>Description: <b><%= @board.description %></b></p>
 <p>
-  <% if can? :destroy, :board %>
+  <% if can? :destroy, :boards %>
     <%= link_to 'Destroy', @board, method: :delete, data: { confirm: 'Are you sure?'},
      class: "btn btn-danger" %> |
   <% end %>
-  <% if can? :update, :board %>
+  <% if can? :update, :boards %>
    <%= link_to 'Edit', edit_board_path(@board), class: "btn btn-primary" %> |
   <% end %>
    <%= link_to 'Back', :back, class: "btn btn-primary" %>
