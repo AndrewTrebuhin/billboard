@@ -1,7 +1,7 @@
 <h1>Board</h1>
 
 <p>
-<%= image_tag(@board.image, width: "200") %><br>
+<%= link_to image_tag(@board.image.thumb), image_path(@board.image) %><br>
 <small>Author: <b><%= @board.user.login || @board.user.email %></b></small>
 </p>
 <p>Description: <b><%= @board.description %></b></p>
