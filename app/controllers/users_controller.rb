@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       flash[:notice] = "User successfully created."
       redirect_to @user
     else
-      flash[:alert] = @user.errors
+      flash.now[:alert] = @user.errors.full_messages.first
       render "new"
     end
   end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Profile updated."
       redirect_to @user
     else
-      flash[:alert] = @user.errors
+      flash.now[:alert] = @user.errors.full_messages.first
       render "new"
     end
   end

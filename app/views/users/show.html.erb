@@ -23,6 +23,9 @@
   <p>Full address: </p>
 </div>
 <p>
+  <% if can? :destroy, :user %>
+    <%= link_to 'Destroy', @user, method: :delete, class: "btn btn-danger" %> |
+  <% end %>
   <% if can? :update, :user %>
    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
   <% end %>

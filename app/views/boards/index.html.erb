@@ -1,0 +1,20 @@
+<div class="row">
+<% @boards.each do |board| %>
+  <div class="col-sm-3 col-md-3">
+    <div class="thumbnail">
+    <% unless board.image.nil? %>
+      <%= link_to image_tag(board.image.thumb), board %>
+    <% else %>
+      <%= image_tag('empty_board.jpg', width: '250') %>
+    <% end %>
+      <div class="caption">
+        <p align="right"><small>Author: <b><%= link_to board.user.login || board.user.email,
+                                 board.user %></b></small></p>
+        <p><%= truncate(board.description, length: 160) %></p>
+        <p align="right"><%= link_to 'See more', board %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<%= will_paginate @boards %>
