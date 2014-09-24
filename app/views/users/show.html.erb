@@ -20,7 +20,7 @@
     <p>Latitude: <b><%= @user.latitude %></b></p>
     <p>Longitude: <b><%= @user.longitude %></b></p>
   </div>
-  <p>Full address: </p>
+  <p><b>Full address:</b> <%= @user.full_street_address %></p>
 </div>
 <p>
   <% if can? :destroy, :user %>
