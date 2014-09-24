@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :edit, :update, :destroy, :admin?]
+  before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
+    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.infowindow user.login || user.email
+    end
   end
 
   def new

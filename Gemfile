@@ -41,6 +41,8 @@ gem 'will_paginate'
 
 gem 'geocoder'
 
+gem 'gmaps4rails'
+
 gem 'faker'
 
 gem 'carrierwave'

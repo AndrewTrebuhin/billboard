@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :boards
+  has_many :boards, dependent: :destroy
 
   geocoded_by :full_street_address
   after_validation :geocode
 
   def full_street_address
-    [address, city, state, country].compact.join(', ')
+    [zip, address, city, state, country].compact.join(', ')
   end
 end
