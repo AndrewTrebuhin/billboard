@@ -2,9 +2,7 @@
 
 FactoryGirl.define do
   factory :comment do
-    title "MyString"
-    body "MyText"
-    commentable_id 1
-    commentable_type "MyString"
+    title { Faker::Lorem.words(2) }
+    body  { Faker::Lorem.sentence }
   end
 end
