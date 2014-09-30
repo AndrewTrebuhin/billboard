@@ -1,5 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
 
-RSpec.describe 'BoardsController', :type => :controller do
+RSpec.describe BoardsController, :type => :controller do
 
 end #OfBoard
