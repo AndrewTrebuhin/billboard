@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-RSpec.describe 'Board', :type => :controller do
+RSpec.describe 'BoardsController', :type => :controller do
 
 end #OfBoard

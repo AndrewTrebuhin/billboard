@@ -5,4 +5,5 @@ class Board < ActiveRecord::Base
   mount_uploader :image, BoardImageUploader
 
   validates :description, presence: true
+  validates :user, presence: true
 end

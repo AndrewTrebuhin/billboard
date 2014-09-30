@@ -1,5 +1,5 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe User, :type => :controller do
+RSpec.describe 'UsersController', :type => :controller do
 
 end
