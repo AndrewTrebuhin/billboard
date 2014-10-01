@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash.now[:alert] = @user.errors.full_messages.first
-      render "new"
+      render "edit"
     end
   end
 

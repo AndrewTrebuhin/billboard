@@ -1,5 +1,4 @@
-<%= simple_form_for @comment do |f| %>
-  <%= f.input :title %>
+<%= simple_form_for [@parent, @comment] do |f| %>
   <%= f.input :body, input_html: { rows: 4, cols: 50 } %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

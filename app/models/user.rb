@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
                     uniqueness: true
                     #format: { with: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
-  validates :login, length: { in: 1..25  },
+  validates :login, length: { in: 0..25  },
                     uniqueness: true
 
   validates :full_name, length: { in: 1..50 }

@@ -1,10 +1,15 @@
 <h1>Board</h1>
+<small><%= @board.last_update %></small>
 
 <p>
-<%= link_to image_tag(@board.image.thumb), image_path(@board.image) %><br>
-<small>Author: <b><%= @board.user.login || @board.user.email %></b></small>
+  <%= link_to image_tag(@board.image.thumb), image_path(@board.image) %><br>
+  <small>
+    Author: <b><%= link_to @board.user.email, @board.user %></b>
+  </small>
 </p>
+
 <p>Description: <b><%= @board.description %></b></p>
+
 <p>
   <% if can? :destroy, :boards %>
     <%= link_to 'Destroy', @board, method: :delete, data: { confirm: 'Are you sure?'},
@@ -16,4 +21,10 @@
    <%= link_to 'Back', :back, class: "btn btn-primary" %>
 </p>
 
-<h2>Comments</h2>
+<hr>
+  <h2>Comments <%= link_to '(+)', new_board_comment_path(@board) %></h2>
+  <div class="comments-container">
+    <ul class="comment_list">
+      <%= render partial: 'comments/comment', collection: @board.comments %>
+    </ul>
+  </div>

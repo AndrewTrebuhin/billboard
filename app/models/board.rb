@@ -6,4 +6,8 @@ class Board < ActiveRecord::Base
 
   validates :description, presence: true
   validates :user, presence: true
+
+  def last_update
+    updated_at.strftime("%d %b. %Y %H:%M") || created_at.strftime("%d %b. %Y %H:%M")
+  end
 end

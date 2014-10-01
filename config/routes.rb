@@ -7,6 +7,16 @@ Rails.application.routes.draw do
   resources :boards
   resources :comments
 
+
+  resources :comments do
+    resources :comments
+  end
+
+  resources :boards do
+    resources :comments
+  end
+
+
   # You can have the root of your site routed with "root"
   root 'boards#index'
 
