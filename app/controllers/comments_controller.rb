@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  #before_action :find_comment, only: [:show, :edit, :update, :destroy]
+  before_action :find_comment, only: [:show, :edit, :update, :destroy]
   before_filter :get_parent
 
   def new
@@ -22,10 +22,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment.update_attributes(comment_params)
+
+    if @comment.save
+      redirect_to board_path(@comment.board), notice: 'Comment successfully updated'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @comment.destroy
     flash[:notice] = "Comment successfully deleted."
-    redirect_to @board
+    redirect_to @comment.board
   end
 
   protected

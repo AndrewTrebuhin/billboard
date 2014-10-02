@@ -1,30 +1,40 @@
 <h1>Board</h1>
-<small><%= @board.last_update %></small>
 
-<p>
-  <%= link_to image_tag(@board.image.thumb), image_path(@board.image) %><br>
-  <small>
-    Author: <b><%= link_to @board.user.email, @board.user %></b>
-  </small>
-</p>
+<div class="board">
+  <div class="board-image">
+    <small><%= @board.last_update %></small><br>
+    <%= link_to image_tag(@board.image.thumb), image_path(@board.image) %><br>
+    <small>
+      Author: <b><%= link_to @board.user.email, @board.user %></b>
+    </small>
+  </div>
 
-<p>Description: <b><%= @board.description %></b></p>
+  <div class="board-description">
+    <p><b>Description:</b> <%= @board.description %></p>
+  </div>
 
-<p>
-  <% if can? :destroy, :boards %>
-    <%= link_to 'Destroy', @board, method: :delete, data: { confirm: 'Are you sure?'},
-     class: "btn btn-danger" %> |
-  <% end %>
-  <% if can? :update, :boards %>
-   <%= link_to 'Edit', edit_board_path(@board), class: "btn btn-primary" %> |
-  <% end %>
-   <%= link_to 'Back', :back, class: "btn btn-primary" %>
-</p>
+  <div class="manage-block">
+    <% if can? :destroy, :boards %>
+      <%= link_to 'Destroy', @board, method: :delete,
+                  data: { confirm: 'Are you sure?'},
+                  class: "btn btn-danger" %> |
+    <% end %>
+    <% if can? :update, :boards %>
+      <%= link_to 'Edit', edit_board_path(@board), class: "btn btn-primary" %> |
+    <% end %>
+      <%= link_to 'Back', :back, class: "btn btn-primary" %>
+  </div>
+</div>
 
-<hr>
-  <h2>Comments <%= link_to '(+)', new_board_comment_path(@board) %></h2>
-  <div class="comments-container">
+<div style=" width:100%; height:1px; clear:both;"></div>
+
+<h2>Comments <%= link_to '(+)', new_board_comment_path(@board) %></h2>
+<div class="comments-container">
+  <div class="add_comment">
+
+  </div>
     <ul class="comment_list">
       <%= render partial: 'comments/comment', collection: @board.comments %>
     </ul>
   </div>
+</div>
