@@ -3,7 +3,7 @@
 <div class="board">
   <div class="board-image">
     <small><%= @board.last_update %></small><br>
-    <%= link_to image_tag(@board.image.thumb), image_path(@board.image) %><br>
+    <%= link_to cl_image_tag(@board.image_url(:thumbnail)), image_path(@board.image_url) %><br>
     <small>
       Author: <b><%= link_to @board.user.email, @board.user %></b>
     </small>

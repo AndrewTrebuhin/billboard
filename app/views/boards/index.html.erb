@@ -2,16 +2,23 @@
   <% @boards.each do |board| %>
     <div class="col-md-3">
       <div class="thumbnail">
-      <% unless board.image.nil? %>
-        <%= link_to image_tag(board.image.thumb), board %>
-      <% else %>
-        <%= image_tag('empty_board.jpg', width: '250') %>
-      <% end %>
+      <% if board.image %>
+        <%= link_to cl_image_tag(board.image_url(:thumbnail)), board %>
+        <% end %>
         <div class="caption">
-          <p align="right"><small>Author: <b><%= link_to board.user.login || board.user.email,
-                                   board.user %></b></small></p>
+          <p align="right">
+            <small>Author:
+            <b><%= link_to board.user.login || board.user.email,
+                           board.user %></b>
+            </small>
+          </p>
           <p><%= truncate(board.description, length: 160) %></p>
           <p align="right"><%= link_to 'See more', board %></p>
+          <p>
+            <small>Comments:
+            <%= link_to board.comments.count, board %>
+            </small>
+          </p>
         </div>
       </div>
     </div>
