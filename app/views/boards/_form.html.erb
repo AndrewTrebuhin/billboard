@@ -1,5 +1,5 @@
 <%= simple_form_for @board, :html => {:multipart => true} do |f| %>
-  <%= image_tag(@board.image_url, width: "300") if @board.image? %>
+  <%= cl_image_tag(@board.image, width: "300") if @board.image? %>
   <%= f.file_field :image %>
   <%= f.hidden_field :image_cache %>
   <%= f.input :description, input_html: { rows: 4, cols: 50 } %>

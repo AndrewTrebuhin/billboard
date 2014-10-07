@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hbgrvvvdu
+  api_key: '996163887864929'
+  api_secret: 7AtgJ2gvg9w7hVnjZo5G5zZLbWM
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hbgrvvvdu
+  api_key: '996163887864929'
+  api_secret: 7AtgJ2gvg9w7hVnjZo5G5zZLbWM
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hbgrvvvdu
+  api_key: '996163887864929'
+  api_secret: 7AtgJ2gvg9w7hVnjZo5G5zZLbWM
+  enhance_image_tag: true
+  static_image_support: false

@@ -16,4 +16,5 @@
 /tmp
 /public
 /config/secrets.yml
+/config/clodinary.yml
 /test

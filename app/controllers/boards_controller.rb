@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
   before_action :find_board, only: [:show, :edit, :update, :destroy]
 
   def index
-    @boards = Board.paginate(:page => params[:page], :per_page => 12)
+    @boards = Board.order("created_at desc").paginate(:page => params[:page], :per_page => 8)
   end
 
   def show
