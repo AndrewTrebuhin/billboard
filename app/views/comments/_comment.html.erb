@@ -1,0 +1,25 @@
+<li class="comment">
+  <div class="date">
+    <small>
+      <%= comment.created_at.strftime("%d %b. %Y %H:%M") %>
+    </small>
+  </div>
+  <div class="body">
+    <%= comment.body %>
+  </div>
+  <div class="comment-manage">
+  <%= link_to 'Add a Reply', new_comment_comment_path(comment) %>
+    <% if can? :destroy, :comments %>
+      <%= link_to 'Del', board_comment_path(@board, comment), method: :delete %>
+    <% end %>
+    <% if can? :edit, :comments %>
+      <%= link_to 'Edit', edit_board_comment_path(@board, comment) %>
+    <% end %>
+  </div>
+
+  <% unless comment.comments.empty? %>
+    <ul class="comment_list">
+      <%= render partial: 'comments/comment', collection: comment.comments %>
+    </ul>
+  <% end %>
+</li>

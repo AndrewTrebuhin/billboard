@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.paginate(:page => params[:page], :per_page => 5)
+    @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash.now[:alert] = @user.errors.full_messages.first
-      render "new"
+      render "edit"
     end
   end
 

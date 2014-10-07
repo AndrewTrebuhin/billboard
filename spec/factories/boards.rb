@@ -1,6 +1,9 @@
 FactoryGirl.define do
   factory :board do
     description { Faker::Lorem.paragraph(5) }
-    association(:user)
+
+    factory :board_with_new_user do
+      association(:user)
+    end
   end
 end

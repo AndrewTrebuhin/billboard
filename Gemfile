@@ -47,6 +47,8 @@ gem 'faker'
 
 gem 'carrierwave'
 
+gem 'cloudinary'
+
 gem 'mini_magick'
 
 group :development, :test do
