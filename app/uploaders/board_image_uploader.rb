@@ -39,7 +39,7 @@ class BoardImageUploader < CarrierWave::Uploader::Base
   end
 
   def public_id
-    model.id.to_s
+    'boards/' + model.id.to_s
   end
 
   # Override the filename of the uploaded files:
